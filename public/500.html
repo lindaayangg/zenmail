@@ -1,0 +1,114 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+    <title>500 Internal Server Error – EasyStory</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="/icon.png" type="image/png">
+
+    <style>
+        html {
+            font-size: 16px;
+            background: #f6f6f6;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-base-200, #f6f6f6);
+            color: var(--color-base-content, #261B23);
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Aptos, Roboto, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 1.25rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        main {
+            background: var(--color-base-100, #fff);
+            border-radius: 1rem;
+            box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.04);
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 28rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 4.5rem;
+            height: 4.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            color: var(--color-primary, #3B82F6);
+        }
+        
+        p {
+            font-size: 1rem;
+            color: var(--color-base-content, #261B23);
+            margin: 0;
+        }
+        
+        a.button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            background: var(--color-primary, #3B82F6);
+            color: var(--color-primary-content, #fff);
+            font-weight: 600;
+            padding: 0.75em 1.5em;
+            border-radius: 0.5em;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        
+        a.button:hover {
+            background: #2563eb;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- This file lives in public/500.html -->
+
+    <main>
+        <svg class="logo" width="72" height="72" viewBox="128 144 264 248" xmlns="http://www.w3.org/2000/svg" style="display:block" overflow="visible">
+        <defs>
+          <linearGradient id="blueIndigoGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#3B9DF4" />
+            <stop offset="100%" stop-color="#6A5ACD" />
+          </linearGradient>
+        </defs>
+        <path d="M160 144c-17.7 0-32 14.3-32 32v128c0 17.7 14.3 32 32 32h40v40c0 4.4 5.3 6.6 8.4 3.5l44.9-43.8H352c17.7 0 32-14.3 32-32V176c0-17.7-14.3-32-32-32H160z" fill="url(#blueIndigoGradient)"/>
+        <g transform="translate(190, 200)">
+          <rect x="0" y="0" width="132" height="90" rx="16" fill="#ffffff"/>
+          <circle cx="66" cy="45" r="20" fill="#2a7eff"/>
+          <rect x="16" y="-20" width="24" height="16" rx="4" fill="#ffffff"/>
+        </g>
+      </svg>
+        <h1>500 Internal Server Error</h1>
+        <p>We're sorry, but something went wrong.<br>If you're the application owner, check the logs for more information.</p>
+        <a class="button" href="/">Go to Homepage</a>
+    </main>
+
+</body>
+
+</html>

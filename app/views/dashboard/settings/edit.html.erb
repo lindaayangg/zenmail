@@ -1,0 +1,47 @@
+<%# app/views/dashboard/settings/edit.html.erb %>
+<% content_for :navbar do %>
+  <%= render "layouts/navbar" %>
+<% end %>
+
+<div class="container mx-auto px-3 py-5 mt-16 md:px-4 md:py-8 md:mt-16 pb-20 md:pb-8">
+  <!-- Page Header -->
+  <div class="flex items-center gap-3 mb-6">
+    <div class="size-10 md:size-12 rounded-lg bg-primary/10 flex items-center justify-center">
+      <%= lucide_icon('settings', class: 'size-5 md:size-6 text-primary') %>
+    </div>
+    <div>
+      <h2 class="text-lg md:text-2xl font-bold">Account Settings</h2>
+      <p class="text-xs md:text-base text-base-content/60">Manage your name and email.</p>
+    </div>
+  </div>
+  <div class="max-w-2xl mx-auto card bg-base-100 rounded-xl shadow p-0">
+    <div class="card-body p-6">
+      <% if @user.errors.any? %>
+        <div class="mb-4 p-3 rounded bg-red-100 text-red-800 border border-red-200">
+          <ul class="list-disc pl-5">
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form_with model: @user, url: dashboard_settings_path, method: :patch, local: true do |f| %>
+        <div class="form-control mb-4">
+          <label class="label">
+            <span class="label-text font-medium mb-1">Name</span>
+          </label>
+          <%= f.text_field :name, class: "input input-bordered w-full", placeholder: "Your Name" %>
+        </div>
+        <div class="form-control mb-4">
+          <label class="label">
+            <span class="label-text font-medium mb-1">Email</span>
+          </label>
+          <%= f.email_field :email, class: "input input-bordered w-full", placeholder: "you@email.com" %>
+        </div>
+        <div class="mt-6">
+          <%= f.submit "Save Settings", class: "btn btn-primary w-full" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div> 

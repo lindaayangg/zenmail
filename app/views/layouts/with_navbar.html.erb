@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html data-theme="bumblebee-custom" lang="en">
+  <head>
+    <%= render "layouts/head" %>
+  </head>
+
+  <body class="min-h-screen bg-base-200 flex flex-col">
+    <%= render "layouts/navbar" %>
+    <main class="flex-1 flex flex-col">
+      <%= render "shared/flash" %>
+      <%= yield %>
+    </main>
+    <%= render 'shared/structured_data' %>
+  </body>
+</html> 

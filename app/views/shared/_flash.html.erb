@@ -1,0 +1,14 @@
+<div id="flash" class="fixed inset-x-0 bottom-6 mx-auto w-full max-w-md px-4 z-100">
+  <% flash.each do |type, message| %>
+    <% alert_class = case type.to_s
+      when 'notice' then 'alert-info'
+      when 'success' then 'alert-success'
+      when 'error', 'alert' then 'alert-error'
+      else 'alert-warning'
+    end %>
+    <div role="alert" class="alert <%= alert_class %> alert-soft sm:alert-horizontal" data-controller="flash">
+      <span><%= message %></span>
+      <button data-action="flash#dismiss" class="btn btn-sm btn-ghost">&times;</button>
+    </div>
+  <% end %>
+</div>

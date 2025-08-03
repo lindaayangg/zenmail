@@ -1,0 +1,292 @@
+<% content_for :title, "Page Title" %>
+<% content_for :description, "Page description goes here." %>
+<% content_for :keywords, "keywords, go, here" %>
+<div class="min-h-screen bg-base-300">
+  <header class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900">
+    <nav class="mx-auto px-4 py-6 justify-between items-center container flex">
+      <%= link_to root_path, class: 'flex items-center gap-2 px-2 py-1 rounded-lg group' do %>
+        <div class="transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(var(--p),0.7)] group-hover:scale-110">
+          <%= image_tag '/logo.svg', class: 'size-8' %>
+        </div>
+        <span class="font-bold text-xl">
+          Brand<span class="text-primary border-primary">Name</span>
+        </span>
+      <% end %>
+      <div class="md:flex items-center hidden space-x-8">
+        <%= link_to '#section-1', class: "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400" do %>
+          Section 1
+        <% end %>
+        <%= link_to '#section-2', class: "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400" do %>
+          Section 2
+        <% end %>
+        <%= link_to '#section-3', class: "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400" do %>
+          Section 3
+        <% end %>
+        <%= link_to '/sign-up', class: "bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" do %>
+          Call to Action
+        <% end %>
+      </div>
+      <div class="dropdown dropdown-end md:hidden">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+          <%= lucide_icon 'menu', class: 'w-6 h-6' %>
+        </div>
+        <ul tabindex="0" class="dropdown-content menu menu-sm z-[1] p-2 shadow-xl bg-base-100 rounded-box w-64 mt-4">
+          <%= link_to '#section-1', class: "flex items-center gap-2 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-base-200" do %>
+            <%= lucide_icon 'book', class: 'size-4' %>
+            Section 1
+          <% end %>
+          <%= link_to '#section-2', class: "flex items-center gap-2 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-base-200" do %>
+            <%= lucide_icon 'box', class: 'size-4' %>
+            Section 2
+          <% end %>
+          <%= link_to '#section-3', class: "flex items-center gap-2 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-base-200" do %>
+            <%= lucide_icon 'circle-dollar-sign', class: 'size-4' %>
+            Section 3
+          <% end %>
+          <%= link_to '/sign-up', class: "flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700" do %>
+            <%= lucide_icon 'log-in', class: 'size-4' %>
+            Call to Action
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+    <div class="mx-auto px-4 pt-6 lg:pt-24 py-16 lg:py-24 container">
+      <div class="lg:grid-cols-2 items-center grid gap-12 text-center lg:text-left">
+        <div>
+          <p class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 dark:text-white">
+            <span>Headline</span>
+            <span class="text-blue-600 dark:text-blue-400">Highlight</span>
+            <span>Goes Here</span>
+          </p>
+          <p class="text-lg sm:text-xl text-gray-600 lg:mb-8 dark:text-gray-300">Subheadline or description goes here.</p>
+          <div class="hidden lg:flex sm:flex-row sm:space-y-0 sm:space-x-4 flex-col space-y-4 justify-center lg:justify-start">
+            <%= link_to 'Primary Action', '/sign-up', method: :get, class: "hover:bg-blue-700 transition-colors bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold" %>
+            <%= link_to 'Secondary Action', '#section-1', class: "border-2 border-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold" %>
+          </div>
+        </div>
+        <div class="w-full max-w-md mx-auto">
+          <div class="relative w-full mx-auto mb-12">
+            <div class="bg-blue-600 text-white rounded-2xl shadow-lg absolute -top-4 -right-0 sm:-right-4 p-3">
+              <div class="text-sm font-semibold">Badge</div>
+            </div>
+          </div>
+          <div class="flex lg:hidden flex-row space-x-4 justify-center lg:mt-8">
+            <%= link_to 'Primary Action', '/sign-up', method: :get, class: "hover:bg-blue-700 transition-colors bg-blue-600 text-white px-2 py-3 rounded-lg text-lg font-semibold w-1/2" %>
+            <%= link_to 'Secondary Action', '#', class: "border-2 border-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors text-blue-600 px-2 py-3 rounded-lg text-lg font-semibold w-1/2" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section class="py-16 lg:py-24 bg-gray-50 dark:bg-gray-800" id="section-1">
+    <div class="mx-auto px-4 container">
+      <div class="text-center mb-8 sm:mb-12">
+        <p class="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 dark:text-white">Section 1 Title</p>
+        <p class="text-xl text-gray-600 mx-auto dark:text-gray-300 max-w-3xl">Section 1 description goes here.</p>
+      </div>
+      <div class="md:grid-cols-3 lg:gap-12 grid gap-8">
+        <div class="text-center">
+          <div class="bg-blue-100 dark:bg-blue-900 sm:w-20 sm:h-20 w-16 h-16 rounded-full items-center justify-center mx-auto mb-6 flex">
+            <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">1</span>
+          </div>
+          <p class="text-xl font-bold text-gray-900 mb-2 dark:text-white">Step 1</p>
+          <div class="flex justify-center mb-2">
+            <span class="badge bg-blue-600 text-white text-sm px-4 py-2 rounded-full shadow">Badge</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300">Step 1 description.</p>
+        </div>
+        <div class="text-center px-4 sm:px-0">
+          <div class="bg-blue-100 dark:bg-blue-900 sm:w-20 sm:h-20 w-16 h-16 rounded-full items-center justify-center mx-auto mb-6 flex">
+            <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">2</span>
+          </div>
+          <p class="text-xl font-bold text-gray-900 mb-4 dark:text-white">Step 2</p>
+          <p class="text-gray-600 dark:text-gray-300">Step 2 description.</p>
+        </div>
+        <div class="text-center">
+          <div class="bg-blue-100 dark:bg-blue-900 sm:w-20 sm:h-20 w-16 h-16 rounded-full items-center justify-center mx-auto mb-6 flex">
+            <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">3</span>
+          </div>
+          <p class="text-xl font-bold text-gray-900 mb-4 dark:text-white">Step 3</p>
+          <p class="text-gray-600 dark:text-gray-300">Step 3 description.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 lg:py-24 bg-gray-100" id="section-2">
+    <div class="mx-auto px-4 container">
+      <div class="text-center mb-8 sm:mb-12">
+        <p class="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 dark:text-white">Section 2 Title</p>
+        <p class="text-xl text-gray-600 mx-auto dark:text-gray-300 max-w-3xl">Section 2 description goes here.</p>
+      </div>
+      <div class="md:grid-cols-2 lg:grid-cols-3 grid gap-6 sm:gap-8 px-4 sm:px-0">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700 relative">
+          <div class="flex items-center justify-between mb-3 sm:mb-4">
+            <div>
+              <p class="text-xl font-bold text-gray-900 dark:text-white">Feature 1</p>
+              <span class="badge bg-blue-600 text-white text-sm px-3 py-1 mt-2 rounded-full shadow">Badge</span>
+            </div>
+            <div class="bg-blue-100 dark:bg-blue-900 w-12 h-12 rounded-lg items-center justify-center flex ml-2">
+              <%= lucide_icon 'message-circle-more', class: 'w-5 h-5 text-blue-600 dark:text-blue-400' %>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300">Feature 1 description.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+          <div class="flex items-center justify-between mb-3 sm:mb-4">
+            <p class="text-xl font-bold text-gray-900 dark:text-white">Feature 2</p>
+            <div class="bg-green-100 dark:bg-green-900 w-12 h-12 rounded-lg items-center justify-center flex ml-2">
+              <%= lucide_icon 'image', class: 'w-5 h-5 text-green-600 dark:text-green-400' %>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300">Feature 2 description.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+          <div class="flex items-center justify-between mb-3 sm:mb-4">
+            <p class="text-xl font-bold text-gray-900 dark:text-white">Feature 3</p>
+            <div class="bg-purple-100 dark:bg-purple-900 w-12 h-12 rounded-lg items-center justify-center flex ml-2">
+              <%= lucide_icon 'share-2', class: 'w-5 h-5 text-purple-600 dark:text-purple-400' %>
+            </div>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300">Feature 3 description.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 lg:py-24 bg-gray-50 dark:bg-gray-800" id="section-3">
+    <div class="mx-auto px-8 sm:px-4 container">
+      <div class="text-center mb-8 sm:mb-12">
+        <p class="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 dark:text-white">Section 3 Title</p>
+        <p class="text-xl text-gray-600 mx-auto dark:text-gray-300 max-w-3xl">Section 3 description goes here.</p>
+      </div>
+      <div class="md:grid-cols-3 mx-auto grid gap-8 max-w-6xl">
+        <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8">
+          <div class="text-center mb-8">
+            <p class="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Plan 1</p>
+            <div class="text-4xl font-bold text-gray-900 mb-2 dark:text-white">
+              $X
+              <span class="text-lg text-gray-600 dark:text-gray-300">/period</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">Plan 1 description.</p>
+          </div>
+          <ul class="mb-8 space-y-2 sm:space-y-3">
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature A</span>
+            </li>
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature B</span>
+            </li>
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature C</span>
+            </li>
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature D</span>
+            </li>
+            <li class="hidden sm:block">
+              <br/>
+            </li>
+            <li class="hidden sm:block">
+              <br/>
+            </li>
+          </ul>
+          <%= link_to 'Select Plan', '/sign-up', class: "block text-center hover:bg-blue-700 transition-colors w-full bg-blue-600 text-white py-3 rounded-lg font-semibold" %>
+        </div>
+        <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-2 border-blue-600 dark:border-blue-400 p-8 relative">
+          <div class="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold absolute -top-4 left-1/2 transform -translate-x-1/2">Popular</div>
+          <div class="text-center mb-8">
+            <p class="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Plan 2</p>
+            <div class="text-4xl font-bold text-gray-900 mb-2 dark:text-white">
+              $Y
+              <span class="text-lg text-gray-600 dark:text-gray-300">/period</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">Plan 2 description.</p>
+          </div>
+          <ul class="mb-8 space-y-3">
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature E</span>
+            </li>
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature F</span>
+            </li>
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature G</span>
+            </li>
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature H</span>
+            </li>
+            <li class="hidden sm:block">
+              <br/>
+            </li>
+          </ul>
+          <%= link_to 'Select Plan', '/sign-up', class: "block text-center hover:bg-blue-700 transition-colors w-full bg-blue-600 text-white py-3 rounded-lg font-semibold" %>
+        </div>
+        <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8">
+          <div class="text-center mb-8">
+            <p class="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Plan 3</p>
+            <div class="text-4xl font-bold text-gray-900 mb-2 dark:text-white">
+              $Z
+              <span class="text-lg text-gray-600 dark:text-gray-300">/period</span>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">Plan 3 description.</p>
+          </div>
+          <ul class="mb-8 space-y-2 sm:space-y-3">
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature I</span>
+            </li>
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature J</span>
+            </li>
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature K</span>
+            </li>
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature L</span>
+            </li>
+            <li class="items-center flex">
+              <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+              <span class="text-gray-600 dark:text-gray-300">Feature M</span>
+            </li>
+          </ul>
+          <%= link_to 'Contact', '#', class: "block text-center hover:bg-blue-700 transition-colors w-full bg-blue-600 text-white py-3 rounded-lg font-semibold" %>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <p class="text-gray-600 mb-4 dark:text-gray-300">Plan details and notes go here.</p>
+        <div class="justify-center items-center text-sm text-gray-500 flex space-x-8 dark:text-gray-400">
+          <div class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-4 h-4 mr-2' %>
+            Note 1
+          </div>
+          <div class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-4 h-4 mr-2' %>
+            Note 2
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-16 lg:py-24 bg-gradient-to-r from-blue-600 to-purple-600">
+    <div class="mx-auto px-4 text-center container">
+      <p class="text-3xl lg:text-5xl font-bold text-white mb-6">Final Call to Action</p>
+      <p class="text-xl text-blue-100 mb-8 mx-auto max-w-3xl">Final supporting statement goes here.</p>
+      <div class="sm:flex-row sm:space-y-0 sm:space-x-4 justify-center flex flex-col space-y-4 items-center">
+        <%= link_to sign_up_path, class: "btn btn-secondary btn-lg text-base-content/80" do %>
+          Primary Action
+          <%= lucide_icon 'arrow-right', class: 'w-5 h-5 ml-1' %>
+        <% end %>
+        <%= link_to 'Secondary Action', '#section-1', method: :get, class: "btn btn-outline text-white btn-lg hover:text-gray-700" %>
+      </div>
+    </div>
+  </section>
+</div>

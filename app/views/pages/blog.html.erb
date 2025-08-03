@@ -1,0 +1,40 @@
+<div class="container mx-auto px-8 py-8 mt-8 pb-12">
+  <!-- Back Button -->
+  <%= link_to root_path, class: "btn btn-circle absolute left-4 top-4 sm:left-6 sm:top-6 z-50" do %>
+     <%= lucide_icon 'arrow-left', class: 'size-6' %>
+  <% end %>
+  <!-- Page Header -->
+  <div class="flex items-center gap-3 mb-8">
+    <div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center">
+       <%= lucide_icon 'notebook-pen', class: 'size-6 text-primary' %>
+    </div>
+    <div>
+      <h2 class="text-2xl font-bold">EasyStory Blog</h2>
+      <p class="text-base-content/60">Tips, updates, and inspiration for your business.</p>
+    </div>
+  </div>
+  <!-- Blog List -->
+  <div class="space-y-6 mb-48">
+    <%= link_to blog_post_path('social-media-marketing-guide'), class: 'block transition-transform hover:scale-[1.01]' do %>
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Complete Social Media Marketing Guide for Visual Businesses</h3>
+          <p class="text-base-content/60 mb-2">July 6, 2025</p>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">Master social media marketing for visual businesses with our comprehensive guide. Learn strategies for before & after photos, engagement tactics, and growth techniques.</p>
+          <span class="text-blue-600 dark:text-blue-400 underline font-semibold">Read More</span>
+        </div>
+      </div>
+    <% end %>
+
+    <%= link_to blog_post_path('before-after-photos-transform-business'), class: 'block transition-transform hover:scale-[1.01]' do %>
+      <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">How Before & After Photos Can Transform Your Business</h3>
+          <p class="text-base-content/60 mb-2">June 13, 2025</p>
+          <p class="mb-4 text-gray-700 dark:text-gray-300">Discover why before & after photos are one of the most powerful marketing tools for SMBs—and how EasyStory makes it effortless to create and share them.</p>
+          <span class="text-blue-600 dark:text-blue-400 underline font-semibold">Read More</span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div> 

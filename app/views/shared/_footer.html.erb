@@ -1,0 +1,59 @@
+<footer class="bg-gray-900 dark:bg-black text-white py-16">
+  <div class="mx-auto px-4 container">
+    <div class="md:grid-cols-3 grid gap-8">
+      <div class="md:pr-12 text-center md:text-left">
+        <%= link_to root_path do %>
+        <div class="text-2xl font-bold text-blue-400 mb-4 md:mb-6">EasyStory</div>
+        <% end %>
+        <p class="text-gray-400 lg:pr-12">Transforming how visual businesses showcase their work through automated
+            social media marketing.</p>
+      </div>
+      <div class="md:col-span-2 md:grid-cols-3 grid gap-8 text-center md:text-left">
+        <div>
+          <p class="text-lg font-semibold mb-4 md:mb-6">Product</p>
+          <ul class="space-y-3">
+            <li>
+              <%= link_to 'How It Works', '#how-it-works', class: "text-gray-400 hover:text-white transition-colors"%>
+            </li>
+            <li>
+              <%= link_to 'Features', '#features', class: "text-gray-400 hover:text-white transition-colors"%>
+            </li>
+            <li>
+              <%= link_to 'Pricing', '#pricing', class: "text-gray-400 hover:text-white transition-colors"%>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-lg font-semibold mb-4 md:mb-6">Support</p>
+          <ul class="space-y-3">
+            <li>
+              <a href="/faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
+            </li>
+            <li>
+              <%= mail_to "support@easystory.io", class: "text-gray-400 hover:text-white transition-colors" do %>
+                Contact Us
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-lg font-semibold mb-4 md:mb-6">Company</p>
+          <ul class="space-y-3">
+            <li>
+              <a href="/blog" class="text-gray-400 hover:text-white transition-colors">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 pt-8 md:flex-row justify-between items-center border-t border-gray-800 flex flex-col">
+      <p class="text-gray-400 md:text-left text-center">© 2025 EasyStory, a Cubicell Enterprises Inc. Company. All rights reserved.</p>
+      <div class="mt-4 md:mt-0 flex space-x-6 md:text-left text-center">
+        <a href="/terms" class="text-gray-400 text-sm hover:text-white transition-colors">Terms of
+            Service</a>
+        <a href="/privacy" class="text-gray-400 text-sm hover:text-white transition-colors">Privacy
+            Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>

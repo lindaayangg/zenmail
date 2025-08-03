@@ -1,0 +1,32 @@
+<% if params[:checkout] == "success" && flash[:success].present? %>
+  <div id="checkout-success-modal" class="fixed inset-0 z-[2000] flex items-center justify-center bg-black/60">
+    <div class="bg-base-100 rounded-2xl shadow-2xl max-w-md w-full mx-4 p-8 text-center relative animate-fade-in">
+      <button onclick="document.getElementById('checkout-success-modal').style.display='none'" class="absolute top-4 right-4 btn btn-ghost btn-circle text-xl">&times;</button>
+      <div class="flex flex-col items-center gap-4">
+        <div class="bg-green-100 rounded-full p-4 mb-2">
+          <%= lucide_icon('check', class: 'size-8 text-green-600') %> 
+        </div>
+        <h2 class="text-2xl font-bold mb-2">Payment Successful!</h2>
+        <p class="text-base text-base-content/80 mb-4"><%= flash[:success] %></p>
+        <button onclick="document.getElementById('checkout-success-modal').style.display='none'" class="btn btn-primary w-full">Continue</button>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="container mx-auto px-3 py-5 mt-16 md:px-4 md:py-8 md:mt-16 pb-20 md:pb-8">
+  <!-- Page Header -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4 mb-4 md:mb-8">
+    <div class="flex items-center gap-2 md:gap-3">
+      <div class="size-10 md:size-12 rounded-lg bg-primary/10 flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-5 md:size-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      </div>
+      <div>
+        <h2 class="text-lg md:text-2xl font-bold">Dashboard</h2>
+        <p class="text-xs md:text-base text-base-content/60">Welcome back, <%= current_user.name.present? ? current_user.name.split(" ").first : "User" %>!</p>
+      </div>
+    </div>
+  </div>
+</div>

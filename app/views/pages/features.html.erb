@@ -1,0 +1,141 @@
+<% content_for :title, "EasyStory Features - AI-Powered Before & After Photo Marketing" %>
+<% content_for :description, "Discover EasyStory's powerful features: AI photo processing, automatic social media posting, multi-platform integration, and analytics. Perfect for salons, contractors, and visual businesses." %>
+<% content_for :keywords, "EasyStory features, AI photo processing, social media automation, before after photos, business marketing features, visual business tools" %>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "EasyStory Features",
+  "description": "Discover EasyStory's powerful features for AI-powered before & after photo marketing",
+  "url": "https://easystory.io/features",
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "EasyStory Features",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "AI Photo Processing",
+        "description": "Automatically combine before and after photos with professional formatting"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Multi-Platform Integration",
+        "description": "Post to Facebook, Instagram, Google Business Profile, and more"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Smart Caption Generation",
+        "description": "AI-powered captions that engage your audience and drive results"
+      }
+    ]
+  }
+}
+</script>
+
+<div class="container mx-auto px-8 py-8 mt-8 pb-12">
+  <!-- Back Button -->
+  <%= link_to root_path, class: "btn btn-circle absolute left-4 top-4 sm:left-6 sm:top-6 z-50" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+      <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+    </svg>
+  <% end %>
+
+  <!-- Breadcrumb Navigation -->
+  <%= render 'shared/breadcrumbs' %>
+
+  <!-- Page Header -->
+  <div class="text-center my-12">
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">EasyStory Features</h1>
+    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+      Powerful AI-driven tools designed specifically for visual businesses to showcase transformations
+    </p>
+  </div>
+
+  <!-- Features Grid -->
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    <!-- Text Your Photos Feature -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700 relative">
+      <div class="flex items-center justify-between mb-3 sm:mb-4">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white">Text Your Photos</h3>
+          <span class="badge bg-blue-600 text-white text-sm px-3 py-1 mt-2 rounded-full shadow">No app required</span>
+        </div>
+        <div class="bg-blue-100 dark:bg-blue-900 w-12 h-12 rounded-lg items-center justify-center flex ml-2">
+          <%= lucide_icon 'message-circle-more', class: 'w-6 h-6 text-blue-600 dark:text-blue-400' %>
+        </div>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300">Simply text your before & after photos to our dedicated number. No apps, no uploads, no hassle. Our AI handles everything—combining, enhancing, and posting your transformations automatically.</p>
+    </div>
+
+    <!-- AI Photo Processing -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+      <div class="flex items-center justify-between mb-3 sm:mb-4">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white">AI Photo Processing</h3>
+        <div class="bg-green-100 dark:bg-green-900 w-12 h-12 rounded-lg items-center justify-center flex ml-2">
+          <%= lucide_icon 'image', class: 'w-6 h-6 text-green-600 dark:text-green-400' %>
+        </div>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300">Our AI automatically combines your before and after photos with professional formatting, ensuring consistent branding and optimal visual impact.</p>
+    </div>
+
+    <!-- Multi-Platform Integration -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+      <div class="flex items-center justify-between mb-3 sm:mb-4">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Multi-Platform Integration</h3>
+        <div class="bg-purple-100 dark:bg-purple-900 w-12 h-12 rounded-lg items-center justify-center flex ml-2">
+          <%= lucide_icon 'share-2', class: 'w-6 h-6 text-purple-600 dark:text-purple-400' %>
+        </div>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300">Connect once and post everywhere. Facebook, Instagram, Google Business Profile, and more - all from one simple interface.</p>
+    </div>
+
+    <!-- Smart Caption Generation -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+      <div class="flex items-center justify-between mb-3 sm:mb-4">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Smart Caption Generation</h3>
+        <div class="bg-yellow-100 dark:bg-yellow-900 w-12 h-12 rounded-lg items-center justify-center flex ml-2">
+          <%= lucide_icon 'edit-3', class: 'w-6 h-6 text-yellow-500 dark:text-yellow-400' %>
+        </div>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300">AI-powered captions that engage your audience, include relevant hashtags, and drive real results for your business.</p>
+    </div>
+
+    <!-- Analytics & Insights -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+      <div class="flex items-center justify-between mb-3 sm:mb-4">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Analytics & Insights</h3>
+        <div class="bg-orange-100 dark:bg-orange-900 w-12 h-12 rounded-lg items-center justify-center flex ml-2">
+          <%= lucide_icon 'chart-spline', class: 'w-6 h-6 text-orange-600 dark:text-orange-400' %>
+        </div>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300">Track which transformations perform best, understand your audience, and optimize your content strategy with detailed analytics.</p>
+    </div>
+
+    <!-- One-Click Sharing -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 border border-gray-200 dark:border-gray-700">
+      <div class="flex items-center justify-between mb-3 sm:mb-4">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white">One-Click Sharing</h3>
+        <div class="bg-indigo-200 dark:bg-indigo-900 w-12 h-12 rounded-lg items-center justify-center flex ml-2">
+          <%= lucide_icon 'mouse-pointer-click', class: 'w-6 h-6 text-indigo-600 dark:text-indigo-400' %>
+        </div>
+      </div>
+      <p class="text-gray-600 dark:text-gray-300">Review your AI-generated content and share with a single click. No complex workflows or multiple steps required.</p>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center text-white">
+    <h2 class="text-3xl font-bold mb-4">Ready to Showcase Your Work?</h2>
+    <p class="text-xl mb-6 opacity-90">
+      Join hundreds of businesses who use EasyStory to grow their online presence
+    </p>
+    <%= link_to sign_up_path, class: "btn btn-secondary btn-lg text-base-content/80" do %>
+      Start Free Trial
+      <%= lucide_icon 'arrow-right', class: 'w-5 h-5 ml-1' %>
+    <% end %>
+  </div>
+</div> 

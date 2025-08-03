@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html data-theme="bumblebee-custom" lang="en">
+  <head>
+    <%= render "layouts/head" %>
+  </head>
+  <body class="min-h-screen bg-base-200 flex flex-col">
+    <main class="flex-1 flex flex-col">
+      <%= render "shared/flash" %>
+      <%= yield %>
+      <%= render "shared/footer" if current_page?(root_path) or request.original_url.include?("/blog") or current_page?(faq_path) or current_page?(privacy_path) or current_page?(terms_path) or current_page?(terms_path) %>
+    </main>
+    <%= render 'shared/structured_data' %>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "EasyStory",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "description": "<%= meta_description %>",
+  "author": {
+    "@type": "Organization",
+    "name": "EasyStory",
+    "url": "https://easystory.io",
+    "logo": "<%= asset_url('icon.png') %>"
+  },
+  "datePublished": "2025-01-01",
+  "dateModified": "<%= Time.current.iso8601 %>",
+  "softwareVersion": "1.0.0",
+  "url": "https://easystory.io",
+  "offers": {
+    "@type": "Offer",
+    "price": "9.00",
+    "priceCurrency": "USD",
+    "description": "EasyStory Starter Plan"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EasyStory",
+  "url": "https://easystory.io",
+  "logo": "https://easystory.io/logo.svg",
+  "description": "<%= meta_description %>",
+  "sameAs": [
+    "https://twitter.com/easystory",
+    "https://facebook.com/easystory",
+    "https://instagram.com/easystory"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "availableLanguage": "English"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Social Media Marketing Automation",
+  "description": "AI-powered before & after photo processing and social media posting for visual businesses",
+  "provider": {
+    "@type": "Organization",
+    "name": "EasyStory"
+  },
+  "serviceType": "Social Media Marketing",
+  "areaServed": "Worldwide",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "EasyStory Plans",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Starter Plan",
+          "description": "5 posts per month with AI photo processing"
+        },
+        "price": "9.00",
+        "priceCurrency": "USD"
+      }
+    ]
+  }
+}
+</script>

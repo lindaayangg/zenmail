@@ -1,0 +1,115 @@
+<div class="container mx-auto px-8 py-8 mt-8 pb-12">
+  <!-- Back Button -->
+  <%= link_to root_path, class: "btn btn-circle absolute left-4 top-4 sm:left-6 sm:top-6 z-50" do %>
+    <%= lucide_icon 'arrow-left', class: 'size-6' %>
+  <% end %>
+  <!-- Page Header -->
+  <div class="flex items-center gap-3 mb-8">
+    <div class="size-12 rounded-lg bg-primary/10 flex items-center justify-center">
+      <%= lucide_icon 'info', class: 'size-6 text-primary' %>
+    </div>
+    <div>
+      <h2 class="text-2xl font-bold">Frequently Asked Questions</h2>
+      <p class="text-base-content/60">Find answers to common questions about EasyStory.</p>
+    </div>
+  </div>
+  <!-- Main Content -->
+  <div class="card bg-base-100 shadow-xl">
+    <div class="card-body max-w-none">
+      <div x-data="{ open: null }" class="space-y-4">
+        <div class="border-b border-base-200 pb-2">
+          <button @click="open === 1 ? open = null : open = 1" class="w-full text-left flex items-center justify-between py-2 focus:outline-none cursor-pointer">
+            <span class="text-xl font-semibold text-gray-700 dark:text-white">How does EasyStory work?</span>
+            <svg :class="open === 1 ? 'rotate-180' : ''" class="h-6 w-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open === 1" x-collapse class="mt-2 text-lg text-base-content/70 dark:text-gray-300">
+            EasyStory lets you generate before & after photos for your business by simply texting your photos to our dedicated number. Our platform combines your images, generates captions, and helps you share your transformations on social media.
+          </div>
+        </div>
+        <div class="border-b border-base-200 pb-2">
+          <button @click="open === 2 ? open = null : open = 2" class="w-full text-left flex items-center justify-between py-2 focus:outline-none cursor-pointer">
+            <span class="text-xl font-semibold text-gray-700 dark:text-white">How do I submit my before & after photos?</span>
+            <svg :class="open === 2 ? 'rotate-180' : ''" class="h-6 w-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open === 2" x-collapse class="mt-2 text-lg text-base-content/70 dark:text-gray-300">
+            After signing up and agreeing to receive SMS, you'll receive a prompt to text your before and after photos to our number. We'll handle the rest!
+          </div>
+        </div>
+        <div class="border-b border-base-200 pb-2">
+          <button @click="open === 3 ? open = null : open = 3" class="w-full text-left flex items-center justify-between py-2 focus:outline-none cursor-pointer">
+            <span class="text-xl font-semibold text-gray-700 dark:text-white">Can I cancel my subscription at any time?</span>
+            <svg :class="open === 3 ? 'rotate-180' : ''" class="h-6 w-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open === 3" x-collapse class="mt-2 text-lg text-base-content/70 dark:text-gray-300">
+            Yes! You can cancel your subscription at any time from your account dashboard. Your access will continue until the end of your current billing period.
+          </div>
+        </div>
+        <div class="border-b border-base-200 pb-2">
+          <button @click="open === 4 ? open = null : open = 4" class="w-full text-left flex items-center justify-between py-2 focus:outline-none cursor-pointer">
+            <span class="text-xl font-semibold text-gray-700 dark:text-white">Is my data and my clients' data secure?</span>
+            <svg :class="open === 4 ? 'rotate-180' : ''" class="h-6 w-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open === 4" x-collapse class="mt-2 text-lg text-base-content/70 dark:text-gray-300">
+            We use industry-standard security practices to protect your data. Please see our Privacy Policy for more details.
+          </div>
+        </div>
+        <div class="border-b border-base-200 pb-2">
+          <button @click="open === 5 ? open = null : open = 5" class="w-full text-left flex items-center justify-between py-2 focus:outline-none cursor-pointer">
+            <span class="text-xl font-semibold text-gray-700 dark:text-white">What if I need help or support?</span>
+            <svg :class="open === 5 ? 'rotate-180' : ''" class="h-6 w-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open === 5" x-collapse class="mt-2 text-lg text-base-content/70 dark:text-gray-300">
+            You can reach our support team anytime at <%= mail_to "support@easystory.io", class: "text-blue-600 dark:text-blue-400 underline" %>.
+          </div>
+        </div>
+        <div class="border-b border-base-200 pb-2">
+          <button @click="open === 6 ? open = null : open = 6" class="w-full text-left flex items-center justify-between py-2 focus:outline-none cursor-pointer">
+            <span class="text-xl font-semibold text-gray-700 dark:text-white">What types of businesses use EasyStory?</span>
+            <svg :class="open === 6 ? 'rotate-180' : ''" class="h-6 w-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open === 6" x-collapse class="mt-2 text-lg text-base-content/70 dark:text-gray-300">
+            EasyStory is perfect for salons, contractors, medspas, fitness coaches, home services, and any business that wants to showcase visual transformations to attract new clients.
+          </div>
+        </div>
+        <div class="border-b border-base-200 pb-2">
+          <button @click="open === 7 ? open = null : open = 7" class="w-full text-left flex items-center justify-between py-2 focus:outline-none cursor-pointer">
+            <span class="text-xl font-semibold text-gray-700 dark:text-white">Can I use EasyStory on my phone?</span>
+            <svg :class="open === 7 ? 'rotate-180' : ''" class="h-6 w-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open === 7" x-collapse class="mt-2 text-lg text-base-content/70 dark:text-gray-300">
+            Yes! EasyStory is designed to work seamlessly from your phone. You can submit photos and manage your account from any device.
+          </div>
+        </div>
+        <div class="border-b border-base-200 pb-2">
+          <button @click="open === 8 ? open = null : open = 8" class="w-full text-left flex items-center justify-between py-2 focus:outline-none cursor-pointer">
+            <span class="text-xl font-semibold text-gray-700 dark:text-white">Do you offer a free trial?</span>
+            <svg :class="open === 8 ? 'rotate-180' : ''" class="h-6 w-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open === 8" x-collapse class="mt-2 text-lg text-base-content/70 dark:text-gray-300">
+            Yes, we offer a 14-day free trial so you can experience EasyStory before committing to a subscription.
+          </div>
+        </div>
+        <div class="border-b border-base-200 pb-2">
+          <button @click="open === 9 ? open = null : open = 9" class="w-full text-left flex items-center justify-between py-2 focus:outline-none cursor-pointer">
+            <span class="text-xl font-semibold text-gray-700 dark:text-white">Can I download or share my before & after photos?</span>
+            <svg :class="open === 9 ? 'rotate-180' : ''" class="h-6 w-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open === 9" x-collapse class="mt-2 text-lg text-base-content/70 dark:text-gray-300">
+            Absolutely! You can download your generated images and share them on any social platform or with your clients.
+          </div>
+        </div>
+        <div class="border-b border-base-200 pb-2">
+          <button @click="open === 10 ? open = null : open = 10" class="w-full text-left flex items-center justify-between py-2 focus:outline-none cursor-pointer">
+            <span class="text-xl font-semibold text-gray-700 dark:text-white">What happens to my photos after I upload them?</span>
+            <svg :class="open === 10 ? 'rotate-180' : ''" class="h-6 w-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div x-show="open === 10" x-collapse class="mt-2 text-lg text-base-content/70 dark:text-gray-300">
+            Your photos are securely stored and only used to generate your before & after images. You retain ownership and can delete them at any time from your account.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Alpine.js for disclosure functionality -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script> 

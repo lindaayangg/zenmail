@@ -1,0 +1,184 @@
+<% starter_price_id = Rails.application.credentials.dig(:stripe, :starter_price_id) || ENV['STRIPE_STARTER_PRICE_ID'] %>
+<% professional_price_id = Rails.application.credentials.dig(:stripe, :professional_price_id) || ENV['STRIPE_PROFESSIONAL_PRICE_ID'] %>
+<div class="container mx-auto px-3 py-5 mt-16 md:px-4 md:py-8 md:mt-16 pb-20 md:pb-8"
+     data-controller="subscription"
+     data-subscription-billing-portal-path-value="<%= billing_portal_path %>"
+     data-subscription-checkout-session-path-value="<%= create_checkout_session_path %>"
+     data-subscription-stripe-key-value="<%= Rails.application.credentials.dig(:stripe, :publishable_key) || ENV['STRIPE_PUBLISHABLE_KEY'] %>">
+  <!-- Page Header -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-4 mb-4 md:mb-8">
+    <div class="flex items-center gap-2 md:gap-3">
+      <div class="size-10 md:size-12 rounded-lg bg-primary/10 flex items-center justify-center">
+        <%= lucide_icon 'credit-card', class: 'size-5 md:size-6 text-primary' %>
+      </div>
+      <div>
+        <h2 class="text-lg md:text-2xl font-bold">Subscription</h2>
+        <p class="text-xs md:text-base text-base-content/60">Choose a subscription plan that works for your business</p>
+      </div>
+    </div>
+  </div>
+  <div class="md:grid-cols-3 mx-auto grid gap-8 max-w-6xl">
+    <!-- Starter Plan -->
+    <div class="bg-base-100 dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 flex flex-col justify-between relative">
+      <% if current_user.subscription_plan_name == "Starter" %>
+        <span class="absolute top-4 right-4 bg-green-600 text-white text-xs font-semibold px-4 py-1 rounded-full shadow">Current Plan</span>
+      <% end %>
+      <div>
+        <div class="text-center mb-8 mt-3">
+          <p class="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Starter</p>
+          <div class="text-4xl font-bold text-gray-900 mb-2 dark:text-white">
+            $9 <span class="text-lg text-gray-600 dark:text-gray-300">/month</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300">Perfect for small businesses</p>
+        </div>
+        <ul class="mb-4 space-y-2 sm:space-y-3">
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">5 posts per month</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">Facebook &amp; Instagram</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">AI photo &amp; caption generation</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">Email support</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <% if current_user.subscription_plan_name == "Starter" %>
+          <div>
+            <% if current_user.stripe_trial_ends_at.present? && current_user.stripe_trial_ends_at > Time.current %>
+              <div class="text-warning text-sm text-center">Free trial ends on <%= current_user.stripe_trial_ends_at.strftime('%b %d, %Y') %></div>
+              <button class="btn btn-outline w-full mt-1" type="button" data-action="subscription#openBillingPortal">Add Credit Card</button>
+            <% elsif current_user.subscription_expires_at.present? && current_user.subscription_expires_at > Time.current %>
+              <div class="text-primary text-sm text-center">Renews on <%= current_user.subscription_expires_at.strftime('%b %d, %Y') %></div>
+              <button class="btn btn-outline w-full mt-1" type="button" data-action="subscription#openBillingPortal">Manage Subscription</button>
+            <% end %>
+          </div>
+        <% else %>
+          <button class="btn btn-primary w-full mt-4" type="button" data-action="subscription#subscribeWithStripe" data-price-id="<%= starter_price_id %>">Subscribe</button>
+        <% end %>
+      </div>
+    </div>
+    <!-- Professional Plan -->
+    <div class="bg-base-100 dark:bg-gray-900 rounded-2xl shadow-lg border <%= current_user.subscription_plan_name == 'Professional' ? 'border-gray-200 dark:border-gray-700' : 'border-2 border-blue-600 dark:border-blue-400' %> p-8 flex flex-col justify-between relative">
+      <% unless current_user.subscription_plan_name == "Professional" %>
+        <div class="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold absolute -top-4 left-1/2 transform -translate-x-1/2">Most Popular</div>
+      <% end %>
+      <% if current_user.subscription_plan_name == "Professional" %>
+        <span class="absolute top-4 right-4 bg-green-600 text-white text-xs font-semibold px-4 py-1 rounded-full shadow">Current Plan</span>
+      <% end %>
+      <div>
+        <div class="text-center mb-8 mt-3">
+          <p class="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Professional</p>
+          <div class="text-4xl font-bold text-gray-900 mb-2 dark:text-white">
+            $29 <span class="text-lg text-gray-600 dark:text-gray-300">/month</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300">For growing businesses</p>
+        </div>
+        <ul class="mb-4 space-y-3">
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">20 posts per month</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">Facebook &amp; Instagram</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">Google Business Profile</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">AI photo &amp; caption generation</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">Priority email support</span>
+          </li>
+        </ul>
+      </div>
+      <% if current_user.subscription_plan_name == "Professional" %>
+        <div>
+          <% if current_user.subscription_expires_at.present? && current_user.subscription_expires_at > Time.current %>
+            <div class="text-primary text-sm text-center">Renews on <%= current_user.subscription_expires_at.strftime('%b %d, %Y') %></div>
+            <button class="btn btn-outline w-full mt-1" type="button" data-action="subscription#openBillingPortal">Manage Subscription</button>
+          <% end %>
+        </div>
+      <% else %>
+        <button class="btn btn-primary w-full mt-4" type="button" data-action="subscription#subscribeWithStripe" data-price-id="<%= professional_price_id %>">Subscribe</button>
+      <% end %>
+    </div>
+    <!-- Enterprise Plan -->
+    <div class="bg-base-100 dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 flex flex-col justify-between relative">
+      <% if current_user.subscription_plan_name == "Enterprise" %>
+        <span class="absolute top-4 right-4 bg-green-600 text-white text-xs font-semibold px-4 py-1 rounded-full shadow">Current Plan</span>
+      <% end %>
+      <div>
+        <div class="text-center mb-8 mt-3">
+          <p class="text-2xl font-bold text-gray-900 mb-4 dark:text-white">Enterprise</p>
+          <div class="text-4xl font-bold text-gray-900 mb-2 dark:text-white">
+            $99 <span class="text-lg text-gray-600 dark:text-gray-300">/month</span>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300">For large organizations</p>
+        </div>
+        <ul class="mb-4 space-y-2 sm:space-y-3">
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">100 posts per month</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">Custom branding</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">Facebook &amp; Instagram</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">Google Business Profile</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">AI photo &amp; caption generation</span>
+          </li>
+          <li class="items-center flex">
+            <%= lucide_icon 'check', class: 'w-5 h-5 text-blue-600 mr-3 dark:text-blue-400' %>
+            <span class="text-gray-600 dark:text-gray-300">Dedicated phone support</span>
+          </li>
+        </ul>
+      </div>
+      <% if current_user.subscription_plan_name == "Enterprise" %>
+        <div>
+          <% if current_user.subscription_expires_at.present? && current_user.subscription_expires_at > Time.current %>
+            <div class="text-primary text-sm text-center">Renews on <%= current_user.subscription_expires_at.strftime('%b %d, %Y') %></div>
+            <button class="btn btn-outline w-full mt-1" type="button" data-action="subscription#openBillingPortal">Manage Subscription</button>
+          <% end %>
+        </div>
+      <% else %>
+        <a href="mailto:sales@easystory.io?subject=Enterprise%20Plan%20Inquiry" class="btn btn-primary w-full mt-4">Contact Sales</a>
+      <% end %>
+    </div>
+  </div>
+  <div class="text-center mt-8 mb-4">
+    <div class="justify-center items-center text-sm text-gray-500 flex space-x-8 dark:text-gray-400">
+      <div class="items-center flex">
+        <%= lucide_icon 'check', class: 'w-4 h-4 mr-2' %>
+        Cancel anytime
+      </div>
+      <div class="items-center flex">
+        <%= lucide_icon 'check', class: 'w-4 h-4 mr-2' %>
+        Setup assistance
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://js.stripe.com/v3/"></script> 

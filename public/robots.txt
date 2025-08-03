@@ -1,0 +1,42 @@
+# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://easystory.io/sitemap.xml.gz
+
+# Disallow private areas
+Disallow: /auth/
+Disallow: /dashboard/
+Disallow: /rails/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /messaging/
+Disallow: /images/
+Disallow: /tmp/
+Disallow: /storage/
+
+# Allow important pages
+Allow: /blog/
+Allow: /privacy
+Allow: /terms
+Allow: /faq
+Allow: /sign-up
+Allow: /sign-in
+
+# Performance optimizations
+Crawl-delay: 1
+
+# Specific instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2

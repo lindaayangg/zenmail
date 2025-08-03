@@ -45,7 +45,7 @@ gem "faraday"
 gem "faraday-retry"
 
 # S3 Compatible storage service interaction
-gem "aws-sdk-s3", "1.170", require: false
+gem "aws-sdk-s3", "1.177.0", require: false
 gem "aws-sdk-core", "3.211"
 
 group :development, :test do

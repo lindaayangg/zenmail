@@ -73,7 +73,7 @@ end
 gem "tailwindcss-rails", "~> 4.3.0.rc2"
 
 group :default do
-  gem "clearance", "~> 2.9.3"
+  gem "clearance", "~> 2.10.0"
   gem "omniauth", "~> 2.1.2"
   gem "omniauth-google-oauth2", "~> 1.2.1"
   gem "omniauth-facebook", "~> 10.0.0"
